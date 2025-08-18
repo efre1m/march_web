@@ -14,6 +14,9 @@ const ResetPassword: React.FC = () => {
   const navigate = useNavigate();
   const code = searchParams.get("code");
 
+  // ✅ use env variable for API base URL
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -31,7 +34,7 @@ const ResetPassword: React.FC = () => {
 
     try {
       setLoading(true);
-      await axios.post("http://localhost:1337/api/auth/reset-password", {
+      await axios.post(`${API_BASE_URL}/auth/reset-password`, {
         code,
         password,
         passwordConfirmation,

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useAuth } from "../../contexts/AuthContext"; // Adjust path as needed
-import { useNavigate } from "react-router-dom";
-import ForgotPasswordModal from "./ForgotPasswordModal"; // Import the modal
+import { useAuth } from "../../contexts/AuthContext";
+import { useNavigate, Link } from "react-router-dom";
+import ForgotPasswordModal from "./ForgotPasswordModal";
+import { FaHome } from "react-icons/fa"; // home icon
 import "./login.css";
 
 const Login: React.FC = () => {
@@ -37,6 +38,11 @@ const Login: React.FC = () => {
   return (
     <div className="login-container">
       <h1 className="login-header">Welcome Back</h1>
+
+      {/* Home Button */}
+      <Link to="/" className="home-button">
+        <FaHome className="home-icon" /> Home
+      </Link>
 
       <form onSubmit={handleSubmit} noValidate className="login-form">
         <label htmlFor="identifier" className="login-label">
