@@ -1,0 +1,90 @@
+.login-container {
+  max-width: 400px;
+  margin: 6rem auto 2rem;
+  padding: 2.5rem 3rem;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50; /* Primary dark */
+}
+
+.login-header {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #34495e;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #34495e;
+}
+
+.login-input {
+  padding: 0.65rem 0.75rem;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+  transition: border-color 0.2s ease;
+}
+
+.login-input:focus {
+  border-color: #3498db; /* Accent color */
+  outline: none;
+}
+
+.login-button {
+  padding: 0.75rem 0;
+  background-color: #3498db; /* Accent */
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.login-button:disabled {
+  background-color: #7fb6e8;
+  cursor: not-allowed;
+}
+
+.login-error {
+  margin-top: 1rem;
+  color: #e74c3c; /* Red */
+  font-weight: 600;
+  text-align: center;
+}
+
+.forgot-password-button {
+  margin-top: 1rem;
+  background: none;
+  border: none;
+  color: #3498db;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.forgot-password-button:hover {
+  color: #2980b9;
+}

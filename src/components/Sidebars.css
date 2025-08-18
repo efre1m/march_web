@@ -1,0 +1,30 @@
+/* Main content adjustments */
+.main-content {
+  margin-left: clamp(80px, 10vw, 100px);
+  margin-right: clamp(80px, 10vw, 100px);
+  max-width: 1200px;
+  padding: 1rem var(--spacing-unit);
+  width: calc(100% - clamp(160px, 20vw, 200px));
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+/* Animation for vertical text (used in LeftSidebar) */
+@keyframes floatText {
+  0% {
+    transform: translateY(0) rotate(180deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(180deg);
+  }
+}

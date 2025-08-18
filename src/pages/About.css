@@ -1,0 +1,550 @@
+:root {
+  --primary: #2c3e50;
+  --secondary: #e74c3c;
+  --accent: #3498db;
+  --light: #f9f9f9;
+  --dark: #333333;
+  --text-light: #ffffff;
+  --spacing-unit: 1rem;
+  --border-radius: 12px;
+  --font-family-base: "Arial", sans-serif;
+}
+
+/* ===== General Styling ===== */
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--light);
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Shared Section Styles ===== */
+.journey-section {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: var(--text-light);
+  border-radius: 25px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  max-width: 1200px;
+  width: calc(100% - 40px);
+  padding: 2.5rem 2rem;
+  text-align: left;
+}
+
+.about-hero-modern {
+  max-width: none !important;
+  width: 100% !important;
+  margin: 0 auto 2rem;
+  padding: 2rem 1.5rem;
+  border-radius: 25px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: var(--text-light);
+  box-sizing: border-box;
+  text-align: left;
+}
+
+.journey-section {
+  margin: 0 auto 2rem;
+}
+
+/* ===== Hero Section ===== */
+.about-hero-modern .breadcrumb {
+  color: #fff;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.about-hero-modern .breadcrumb a {
+  color: #9ecfff;
+  text-decoration: underline;
+  margin-right: 0.5rem;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.about-content {
+  flex: 1 1 55%;
+}
+
+.who-we-are {
+  letter-spacing: 0.15rem;
+  color: #e8776f;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.about-title {
+  font-size: 2.8rem;
+  margin: 0 0 1rem;
+  font-weight: bold;
+  color: #f1f6fd;
+}
+
+.about-description {
+  font-size: 1.1rem;
+  color: #d0d8e8;
+  max-width: 100%;
+  width: 100%;
+  line-height: 1.6;
+  text-align: justify;
+  margin: 0;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.vision {
+  text-align: justify;
+}
+.mission-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.mission-list li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.bullet-icon {
+  color: #007bff; /* Modern blue, adjust to your theme */
+  margin-right: 0.6rem;
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.experience-badge .circle {
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, #56ccf2, #e8776f);
+  border-image-slice: 1;
+  border-radius: 50%;
+  padding: 3rem 2rem;
+  text-align: center;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+
+.experience-badge h2 {
+  font-size: 4rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.experience-badge p {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  color: #b2dfff;
+  letter-spacing: 0.05rem;
+}
+
+/* ===== Mission & Vision Section ===== */
+.mission-vision-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.mission-vision-section .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 1.5rem;
+}
+
+.mission-vision-section .card {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-vision-section .card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--accent);
+}
+
+.mission-vision-section .mission::before {
+  background: var(--secondary);
+}
+
+.mission-vision-section .icon {
+  font-size: 2.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-light);
+  background: var(--accent);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.mission-vision-section .mission .icon {
+  background: var(--secondary);
+}
+
+.mission-vision-section .card h2 {
+  color: var(--primary);
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.mission-vision-section .card h2::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+}
+
+.mission-vision-section .mission h2::after {
+  background: var(--secondary);
+}
+
+.mission-vision-section .card p {
+  color: var(--dark);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.mission-vision-section .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Mission, Core Values & Impact Border Styling ===== */
+/* Improve spacing and preserve rounded border appearance */
+.core-values-container,
+.our-impact-container,
+.mission-vision-section {
+  border: 1.5px solid var(--accent);
+  border-radius: 24px;
+  background-color: #ffffff;
+  padding: 2rem 1.5rem; /* Add padding back for inner spacing */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 2rem auto;
+  max-width: 1200px;
+  box-sizing: border-box;
+  overflow: hidden; /* Ensure inner content doesn't bleed over rounded corners */
+}
+
+/* Remove bottom margin from the last child inside these containers */
+.mission-vision-section > .container > *:last-child,
+.core-values-container > *:last-child,
+.our-impact-container > *:last-child {
+  margin-bottom: 0;
+}
+
+/* ===== Journey & Projects Wrapper ===== */
+.journey-projects-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin: 1.5rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+.journey-section {
+  flex: 1 1 58%;
+  padding: 1rem;
+}
+
+.journey-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.timeline-vertical {
+  position: relative;
+  padding-left: 0.8rem;
+  margin: 0;
+  border-left: 2px solid var(--text-light);
+}
+
+.timeline-node {
+  position: relative;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+}
+
+.timeline-bullet {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border: 3px solid var(--text-light);
+  border-radius: 50%;
+  margin-top: 0.3rem;
+  flex-shrink: 0;
+}
+
+.timeline-content {
+  color: var(--text-light);
+}
+
+.timeline-content strong {
+  font-size: 0.95rem;
+  display: block;
+  color: #fff;
+}
+
+.timeline-content span {
+  font-size: 0.8rem;
+  color: #b8d9f9;
+}
+
+.highlight-box-vertical {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.6rem 0.8rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  font-size: 0.85rem;
+  color: #e0e0e0;
+  margin-left: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+.highlight-box-vertical h3 {
+  margin: 0 0 0.3rem;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+/* Projects Section */
+.projects-section {
+  flex: 1 1 40%;
+  background: #4d84d2;
+  padding: 0.6rem 0.6rem 0.2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.projects-title {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: #fff;
+  text-align: left;
+  font-weight: 600;
+}
+
+.project-card-horizontal {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.project-card-horizontal:hover {
+  transform: translateY(-3px);
+}
+
+.project-thumb {
+  width: 140px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.project-text {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  max-height: 120px;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin: 0 0 0.5rem;
+  color: #1a73e8;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: #1a73e8;
+  transition: color 0.3s ease;
+  cursor: default;
+}
+
+.project-title:hover {
+  color: #0c47a1;
+  text-decoration-color: #0c47a1;
+}
+
+.project-summary {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Project Highlight Section */
+.project-highlight-section {
+  max-width: 1200px;
+  margin: 2rem auto 3rem;
+  padding: 2rem;
+  background: #f5f8fa;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.highlight-image {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.highlight-text {
+  max-width: 600px;
+  text-align: left;
+}
+
+.highlight-text blockquote {
+  font-style: italic;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #333;
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #217dbb;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  .about-hero-modern,
+  .journey-section {
+    width: calc(100% - 32px);
+    padding: 1.75rem 1.5rem;
+    border-radius: 18px;
+  }
+
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .experience-badge .circle {
+    width: 180px;
+    height: 180px;
+    padding: 2rem;
+  }
+
+  .experience-badge h2 {
+    font-size: 3rem;
+  }
+
+  .journey-projects-wrapper {
+    flex-direction: column;
+  }
+
+  .journey-section,
+  .projects-section {
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  .journey-title,
+  .projects-title {
+    text-align: center;
+  }
+
+  .project-card-horizontal {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .project-thumb {
+    width: 100%;
+    height: auto;
+  }
+
+  .project-text {
+    width: 100%;
+    padding: 0.8rem;
+  }
+
+  .highlight-content {
+    flex-direction: column;
+  }
+
+  .highlight-text {
+    text-align: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .about-hero-modern,
+  .journey-section {
+    width: calc(100% - 80px);
+  }
+}

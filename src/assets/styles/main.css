@@ -1,0 +1,102 @@
+/* Base Styles */
+:root {
+  --primary: #2c3e50;
+  --secondary: #e74c3c;
+  --accent: #3498db;
+  --light: #f9f9f9;
+  --dark: #333;
+  --gray: #eee;
+  --spacing: 1rem;
+  --border-radius: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.6;
+  color: var(--dark);
+  background-color: var(--light);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: var(--spacing);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing);
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary);
+  font-size: 2.2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+}
+
+.btn-primary {
+  background-color: var(--secondary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: darken(var(--secondary), 10%);
+  transform: translateY(-2px);
+}
+/* Ensure space for fixed left & right sidebars */
+.main-content {
+  /* Left gap + Right gap (matching sidebar widths + padding) */
+  padding-left: calc(clamp(50px, 5vw, 80px) + clamp(1rem, 2vw, 2rem));
+  padding-right: calc(clamp(50px, 5vw, 80px) + clamp(1rem, 2vw, 2rem));
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-left: 1rem; /* No sidebars on mobile */
+    padding-right: 1rem;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 2rem 0;
+  }
+}

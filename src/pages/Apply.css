@@ -1,0 +1,227 @@
+/* Wrapper for the application form section */
+.application-wrapper {
+  background: linear-gradient(135deg, #1d72b8, #1488cc);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+}
+
+/* Form structure */
+.application-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.application-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+}
+
+.required-asterisk {
+  color: #ffd700;
+  margin-left: 4px;
+  font-size: 1rem;
+}
+
+/* Input and Textarea styling */
+.application-form input,
+.application-form textarea {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.application-form input::placeholder,
+.application-form textarea::placeholder {
+  color: #666666;
+}
+
+/* Button styling */
+.application-form button {
+  padding: 0.75rem;
+  background-color: aquamarine;
+  color: #1d72b8;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.application-form button:hover {
+  background-color: #155d91;
+  color: #ffffff;
+}
+
+/* Return & Contact links */
+.return-link,
+.contact-link {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+.return-link:hover,
+.contact-link:hover {
+  color: #ffd700;
+  background-color: rgba(255, 255, 255, 0.2);
+  text-decoration: underline;
+}
+
+.highlight-box h4,
+.highlight-box p {
+  color: #ffffff;
+}
+
+/* Error styling for invalid inputs */
+.application-form input.invalid {
+  border-color: #e74c3c;
+}
+
+.application-form input.invalid:focus {
+  box-shadow: 0 0 0 2px rgba(231, 76, 60, 0.3);
+}
+
+/* Error message container below the sidebar */
+.form-errors {
+  display: block;
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: white;
+  border-left: 4px solid #e74c3c;
+  color: #e74c3c;
+  font-size: 0.95rem;
+  border-radius: 6px;
+}
+
+.form-errors p {
+  margin: 0.3rem 0;
+}
+
+/* Note below the form */
+.note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #fffbd6;
+}
+
+/* === Responsive Layout === */
+.vacancies-layout {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.vacancies-sidebar,
+.vacancies-rightbar {
+  width: 20%;
+}
+
+/* Add top padding only on Apply page sidebars */
+.vacancies-sidebar.apply,
+.vacancies-rightbar.apply {
+  margin-top: 4rem; /* or whatever spacing you want */
+}
+.position-subtitle {
+  margin-top: 0.5rem;
+  font-size: 1.25rem; /* Slightly larger than body text */
+  font-weight: 700; /* Bold */
+  color: #1488cc; /* Bright blue to match your gradient theme */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 0.02em; /* Slight spacing for clarity */
+}
+
+.position-subtitle strong {
+  color: #0f5a8e; /* Darker blue for the actual position name */
+}
+
+.vacancies-main {
+  width: 60%;
+}
+
+@media (max-width: 900px) {
+  .vacancies-layout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .vacancies-sidebar,
+  .vacancies-rightbar,
+  .vacancies-main {
+    width: 100%;
+  }
+
+  .application-wrapper {
+    padding: 1.2rem;
+  }
+
+  .application-form button {
+    width: 100%;
+  }
+
+  .form-errors {
+    font-size: 0.95rem;
+  }
+}
+/* Light Red Error Alert Banner */
+.error-alert {
+  background-color: #ffebee; /* Light red background */
+  color: #c62828; /* Darker red text */
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  animation: fadeIn 0.3s ease-in-out;
+  border-left: 4px solid #ef5350; /* Red accent border */
+}
+
+.error-alert-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.error-alert-icon {
+  font-size: 1.25rem;
+  color: #ef5350; /* Red icon */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Field error messages */
+.field-error {
+  color: #ef5350;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* Invalid field styling */
+.invalid {
+  border-color: #ef5350 !important;
+  background-color: #ffebee;
+}

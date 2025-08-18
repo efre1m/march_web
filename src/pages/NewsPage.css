@@ -1,0 +1,257 @@
+:root {
+  --primary: #2c3e50;
+  --secondary: #e74c3c;
+  --accent: #3498db;
+  --light: #f9f9f9;
+  --dark: #333333;
+  --text-light: #ffffff;
+  --spacing-unit: 1rem;
+  --border-radius: 12px;
+  --font-family-base: "Arial", sans-serif;
+}
+
+/* ===== General Styling ===== */
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--light);
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== NEWS HERO MODERN SECTION ===== */
+.news-hero-modern {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: var(--text-light);
+  border-radius: 25px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  max-width: 1200px;
+  width: 100%; /* Change here */
+  padding: 2rem 1.5rem; /* Slightly smaller padding */
+  margin: 0rem auto 2rem;
+  box-sizing: border-box; /* Add this */
+  text-align: left;
+}
+
+/* Breadcrumb styling */
+.news-hero-modern .breadcrumb {
+  color: #fff;
+  margin-bottom: 2rem;
+  font-size: 0.9rem;
+}
+
+.news-hero-modern .breadcrumb a {
+  color: #9ecfff;
+  text-decoration: underline;
+  margin-right: 0.5rem;
+}
+
+.news-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.news-content {
+  flex: 1 1 55%;
+}
+
+.who-we-are {
+  letter-spacing: 0.15rem;
+  color: #e8776f;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.news-title {
+  font-size: 2.8rem;
+  margin: 0 0 1rem;
+  font-weight: bold;
+  color: #f1f6fd;
+}
+
+.news-description {
+  font-size: 1.1rem;
+  color: #d0d8e8;
+  max-width: 600px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.no-news-message {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: var(--text-color, #444);
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin: 2rem auto;
+  max-width: 600px;
+}
+
+.no-news-message h2 {
+  font-size: 1.8rem;
+  margin-top: 1rem;
+  color: var(--primary, #333);
+}
+
+.no-news-message p {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  color: #666;
+}
+
+/* Experience badge */
+.experience-badge .circle {
+  border: 2px solid transparent;
+  border-image: linear-gradient(45deg, #56ccf2, #e8776f);
+  border-image-slice: 1;
+  border-radius: 50%;
+  padding: 3rem 2rem;
+  text-align: center;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+
+.experience-badge p {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-top: 0.5rem;
+  color: #b2dfff;
+  letter-spacing: 0.05rem;
+}
+
+/* ===== News List Grid (Optional: if used in future) ===== */
+.news-list {
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.news-title-list {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 0.4rem 0;
+  min-height: 48px;
+}
+
+.news-date {
+  font-size: 0.85rem;
+  color: #888;
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+/* View News Button */
+.view-news-button {
+  margin-top: 0.7rem;
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  background-color: var(--accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  transition: background 0.3s ease;
+}
+
+.view-news-button:hover {
+  background-color: #287bc5;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  .news-hero-modern {
+    width: calc(100% - 32px);
+    padding: 1.75rem 1.5rem;
+    border-radius: 18px;
+    text-align: center;
+  }
+
+  .news-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .news-content {
+    flex: 1 1 100%;
+  }
+
+  .news-title {
+    font-size: 2.2rem;
+  }
+
+  .news-description {
+    max-width: 100%;
+  }
+
+  .experience-badge .circle {
+    width: 180px;
+    height: 180px;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .news-hero-modern {
+    padding: 1rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+    width: calc(100% - 20px);
+  }
+
+  .news-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .news-title {
+    font-size: 1.8rem;
+  }
+
+  .news-description {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .experience-badge .circle {
+    width: 140px;
+    height: 140px;
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .news-hero-modern {
+    max-width: 1200px;
+    padding: 3rem 3rem;
+  }
+
+  .news-title {
+    font-size: 3.5rem;
+  }
+
+  .news-description {
+    font-size: 1.25rem;
+  }
+
+  .experience-badge .circle {
+    width: 240px;
+    height: 240px;
+    padding: 4rem 3rem;
+  }
+}

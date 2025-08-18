@@ -1,0 +1,457 @@
+/* Container */
+.team-container {
+  padding: 1.5rem 2rem;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  margin: 1.5rem auto;
+  max-width: 1100px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.05);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.team-heading {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a2a6c;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #1a2a6c;
+  padding-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+
+/* Controls Section */
+.team-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.search-input {
+  flex-grow: 1;
+  max-width: 320px;
+  padding: 10px 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 16px;
+  transition: border-color 0.25s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #1a2a6c;
+  box-shadow: 0 0 6px #6c8ae0aa;
+}
+
+/* Buttons */
+.add-btn,
+.save-btn,
+.cancel-btn,
+.edit-btn,
+.delete-btn {
+  padding: 10px 20px;
+  margin: 0 0.3rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
+  font-size: 15px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  user-select: none;
+}
+
+.add-btn {
+  background: #1a2a6c;
+  color: #fff;
+}
+
+.add-btn:hover {
+  background: #152258;
+  box-shadow: 0 4px 10px rgb(21 34 88 / 0.35);
+}
+
+.save-btn {
+  background: #1e7e34;
+  color: #fff;
+}
+
+.save-btn:hover {
+  background: #16692c;
+  box-shadow: 0 4px 10px rgb(22 105 44 / 0.35);
+}
+
+.cancel-btn {
+  background: #6c757d;
+  color: #fff;
+}
+
+.cancel-btn:hover {
+  background: #565e63;
+  box-shadow: 0 4px 10px rgb(86 94 99 / 0.35);
+}
+
+.edit-btn {
+  background: #f59e0b;
+  color: #fff;
+}
+
+.edit-btn:hover {
+  background: #d97706;
+  box-shadow: 0 4px 10px rgb(217 119 6 / 0.35);
+}
+
+.delete-btn {
+  background: #dc3545;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background: #a02834;
+  box-shadow: 0 4px 10px rgb(160 40 52 / 0.35);
+}
+
+/* Forms */
+.form-card {
+  background: #f8fafc;
+  border: 1px solid #d1d5db;
+  padding: 1.5rem 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.07);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* two columns */
+  gap: 1rem;
+  margin-top: 12px;
+}
+
+@media (min-width: 480px) {
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .form-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+/* Sticky footer for modal actions */
+.form-actions {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  padding: 15px 0;
+  border-top: 1px solid #eee;
+  margin-top: 15px;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+/* Inputs & Textarea */
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: border-color 0.25s ease;
+  resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  outline: none;
+  border-color: #1a2a6c;
+  box-shadow: 0 0 8px #6c8ae0aa;
+}
+
+/* Table Wrapper */
+.table-wrapper {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 0.08);
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Table */
+.team-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+}
+
+.team-table th,
+.team-table td {
+  padding: 14px 20px;
+  text-align: left;
+  vertical-align: middle;
+  border: none;
+}
+
+.team-table th {
+  background-color: #e2e8f0;
+  color: #2d3748;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 12px 12px 0 0;
+  user-select: none;
+}
+
+.team-table tbody tr {
+  background: #f9fafb;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.04);
+  border-radius: 10px;
+  transition: background-color 0.25s ease;
+}
+
+.team-table tbody tr:hover {
+  background-color: #ebf4ff;
+  cursor: pointer;
+}
+
+.team-table tbody tr td:first-child {
+  font-weight: 600;
+  color: #1a2a6c;
+}
+
+/* Profile Images */
+.profile-img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #cbd5e1;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.1);
+  transition: transform 0.2s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.1);
+}
+
+/* No Image Placeholder */
+.no-image {
+  width: 48px;
+  height: 48px;
+  background: #e2e8f0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 600;
+  user-select: none;
+}
+
+/* Bio Cell */
+.bio-cell {
+  max-width: 320px;
+  white-space: normal;
+  word-break: break-word;
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.4;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 42, 108, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1100;
+}
+
+/* Modal */
+.modal {
+  max-height: 80vh;       
+  overflow-y: auto;       
+  max-width: 800px;       
+  padding: 20px;          
+  width: 90%;             
+  box-sizing: border-box; 
+}
+
+.modal h3 {
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  font-size: 22px;
+  color: #1a2a6c;
+}
+
+.modal label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* Error text */
+.error-text {
+  color: #dc2626;
+  font-size: 0.9rem;
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+/* Invalid Input */
+input[aria-invalid="true"] {
+  border-color: #dc2626;
+  outline: none;
+  box-shadow: 0 0 5px #dc2626aa;
+}
+.quote-cell {
+  max-width: 280px;
+  white-space: normal;
+  word-break: break-word;
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.4;
+}
+/* Full width elements span both columns */
+.full-width {
+  grid-column: span 2;
+}
+/* Input error state */
+.input-error {
+  border-color: #dc2626;
+  box-shadow: 0 0 5px #dc2626aa;
+}
+
+/* Required field star */
+.required-star {
+  color: red;
+  margin-left: 2px;
+}
+/* Textareas: allow vertical resize */
+textarea {
+  resize: vertical;
+}
+
+
+/* Responsive Table Styles */
+@media (max-width: 992px) {
+  .team-table {
+    display: block;
+    width: 100%;
+  }
+
+  .team-table thead {
+    display: none;
+  }
+
+  .team-table tbody tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+  }
+
+  .team-table tbody tr td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: right;
+    font-size: 14px;
+  }
+
+  .team-table tbody tr td:before {
+    content: attr(data-label);
+    font-weight: 600;
+    margin-right: 1rem;
+    text-align: left;
+    color: #1a2a6c;
+    flex: 1 0 40%;
+  }
+
+  .team-table tbody tr td:last-child {
+    border-bottom: none;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+
+  .team-table tbody tr td:nth-child(2) {
+    justify-content: flex-start;
+  }
+
+  .bio-cell {
+    text-align: left !important;
+    max-width: 100%;
+  }
+}
+
+/* Extra Small Devices */
+@media (max-width: 576px) {
+  .team-container {
+    padding: 1rem 1.2rem;
+  }
+
+  .team-table tbody tr td {
+    font-size: 13px;
+  }
+
+  .edit-btn,
+  .delete-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .profile-img,
+  .no-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .modal {
+    padding: 1.2rem 1.5rem;
+  }
+}
+
+/* File Inputs */
+input[type="file"] {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  background: #f1f5f9;
+  margin-top: 0.7rem;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.25s ease;
+}
+
+input[type="file"]:focus {
+  outline: none;
+  border-color: #1a2a6c;
+  box-shadow: 0 0 6px #6c8ae0aa;
+}

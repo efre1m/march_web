@@ -1,0 +1,199 @@
+.image-slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  background: #000;
+}
+
+.slider-wrapper {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 */
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform, opacity;
+}
+
+.image-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.slider-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.9);
+  transition: transform 0.5s ease;
+}
+
+/* Caption: Top-Right & Smaller */
+.slide-caption {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: right;
+  z-index: 2;
+  backdrop-filter: blur(2px);
+  pointer-events: none;
+}
+
+/* Progress bar background */
+.slider-controls::before {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Progress bar animation */
+.slider-controls::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  height: 3px;
+  background: white;
+  animation: progressBar var(--duration) linear forwards;
+}
+
+@keyframes progressBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Slider controls container */
+.slider-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 24px 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+
+  /* Default animation duration fallback */
+  --duration: 5000ms;
+}
+
+.slider-dots {
+  display: flex;
+  gap: 12px;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+  outline: none;
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1.2);
+}
+
+.dot.active {
+  background: white;
+  transform: scale(1.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.image-slider-container:hover .slider-image {
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+.image-slider-container:hover .slider-controls::after {
+  animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .slider-wrapper {
+    padding-bottom: 75%;
+  }
+
+  .slide-caption {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+    top: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slider-wrapper {
+    padding-bottom: 100%;
+  }
+
+  .slide-caption {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+
+  .slider-controls {
+    padding-bottom: 15px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .slider-image,
+  .dot,
+  .slide {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+.dot:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
