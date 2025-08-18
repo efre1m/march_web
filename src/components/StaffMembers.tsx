@@ -7,7 +7,7 @@ interface TeamMember {
   id: number;
   Name: string;
   Position: string;
-  Email: string;
+  Email?: string;
   Image?: {
     url?: string;
     formats?: {
@@ -25,8 +25,7 @@ const StaffMembers = () => {
   const trackRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<number | null>(null);
   const currentPositionRef = useRef(0);
-  const scrollWidthRef = useRef(0);
-  const speed = 1;
+  const speed = 0.5; // slower, smoother scroll
 
   const fetchTeam = async () => {
     try {
@@ -45,12 +44,16 @@ const StaffMembers = () => {
     const track = trackRef.current;
     if (!track || team.length === 0) return;
 
-    // Calculate total scrollable width
-    scrollWidthRef.current = track.scrollWidth / 2;
+    // Duplicate children to create continuous loop effect
+    const items = Array.from(track.children);
+    items.forEach((child) => {
+      const clone = child.cloneNode(true);
+      track.appendChild(clone);
+    });
 
     const animate = () => {
       currentPositionRef.current += speed;
-      if (currentPositionRef.current >= scrollWidthRef.current) {
+      if (track.scrollWidth / 2 <= currentPositionRef.current) {
         currentPositionRef.current = 0;
       }
       track.style.transform = `translateX(-${currentPositionRef.current}px)`;
@@ -67,31 +70,26 @@ const StaffMembers = () => {
   const scrollManual = (direction: "left" | "right") => {
     const track = trackRef.current;
     if (!track) return;
-
     if (animationRef.current) cancelAnimationFrame(animationRef.current);
 
     const offset = direction === "left" ? -200 : 200;
-    let newPosition = currentPositionRef.current + offset;
+    currentPositionRef.current += offset;
 
-    // Handle wrap-around
-    if (newPosition < 0)
-      newPosition = scrollWidthRef.current - Math.abs(newPosition);
-    if (newPosition > scrollWidthRef.current) newPosition = 0;
+    // Wrap-around
+    const halfWidth = track.scrollWidth / 2;
+    if (currentPositionRef.current < 0) currentPositionRef.current += halfWidth;
+    if (currentPositionRef.current > halfWidth) currentPositionRef.current -= halfWidth;
 
-    currentPositionRef.current = newPosition;
-    track.style.transform = `translateX(-${newPosition}px)`;
+    track.style.transform = `translateX(-${currentPositionRef.current}px)`;
 
     // Restart animation
-    animationRef.current = requestAnimationFrame(() => {
-      const animate = () => {
-        currentPositionRef.current += speed;
-        if (currentPositionRef.current >= scrollWidthRef.current) {
-          currentPositionRef.current = 0;
-        }
-        track.style.transform = `translateX(-${currentPositionRef.current}px)`;
-        animationRef.current = requestAnimationFrame(animate);
-      };
-      animate();
+    animationRef.current = requestAnimationFrame(function animate() {
+      currentPositionRef.current += speed;
+      if (track.scrollWidth / 2 <= currentPositionRef.current) {
+        currentPositionRef.current = 0;
+      }
+      track.style.transform = `translateX(-${currentPositionRef.current}px)`;
+      animationRef.current = requestAnimationFrame(animate);
     });
   };
 
@@ -109,7 +107,8 @@ const StaffMembers = () => {
         <div className="staff-container">
           <div className="staff-track" ref={trackRef}>
             {team.map((member) => {
-              const initials = member.Name.split(" ")
+              const initials = member.Name
+                .split(" ")
                 .map((n) => n[0])
                 .join("");
 
