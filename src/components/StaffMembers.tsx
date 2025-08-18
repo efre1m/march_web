@@ -43,8 +43,9 @@ const StaffMembers = () => {
 
   useEffect(() => {
     const track = trackRef.current;
-    if (!track) return;
+    if (!track || team.length === 0) return;
 
+    // Calculate total scrollable width
     scrollWidthRef.current = track.scrollWidth / 2;
 
     const animate = () => {
@@ -69,15 +70,18 @@ const StaffMembers = () => {
 
     if (animationRef.current) cancelAnimationFrame(animationRef.current);
 
-    let offset = direction === "left" ? -200 : 200;
+    const offset = direction === "left" ? -200 : 200;
     let newPosition = currentPositionRef.current + offset;
 
-    if (newPosition < 0) newPosition = scrollWidthRef.current;
+    // Handle wrap-around
+    if (newPosition < 0)
+      newPosition = scrollWidthRef.current - Math.abs(newPosition);
     if (newPosition > scrollWidthRef.current) newPosition = 0;
 
     currentPositionRef.current = newPosition;
     track.style.transform = `translateX(-${newPosition}px)`;
 
+    // Restart animation
     animationRef.current = requestAnimationFrame(() => {
       const animate = () => {
         currentPositionRef.current += speed;
@@ -95,29 +99,32 @@ const StaffMembers = () => {
     <section className="staff-section">
       <h2>Our Core Team</h2>
       <div className="staff-container-wrapper">
-        <button className="arrow left" onClick={() => scrollManual("left")}>
+        <button
+          className="arrow left"
+          onClick={() => scrollManual("left")}
+          aria-label="Scroll left"
+        >
           &#8592;
         </button>
         <div className="staff-container">
           <div className="staff-track" ref={trackRef}>
-            {[...team, ...team].map((member, index) => {
+            {team.map((member) => {
               const initials = member.Name.split(" ")
                 .map((n) => n[0])
                 .join("");
 
               const imageUrl =
-                member.Image?.formats?.thumbnail?.url ||
-                member.Image?.url ||
-                "";
+                member.Image?.formats?.thumbnail?.url || member.Image?.url;
 
               return (
-                <div className="staff-card" key={index}>
+                <div className="staff-card" key={member.id}>
                   <div className="staff-image-wrapper">
                     {imageUrl ? (
                       <img
                         src={`${baseUrl}${imageUrl}`}
                         alt={member.Name}
                         className="staff-image"
+                        loading="lazy"
                       />
                     ) : (
                       <div className="staff-placeholder">{initials}</div>
@@ -125,15 +132,21 @@ const StaffMembers = () => {
                   </div>
                   <h3>{member.Name}</h3>
                   <p>{member.Position}</p>
-                  <p className="staff-email">
-                    <FaEnvelope /> {member.Email}
-                  </p>
+                  {member.Email && (
+                    <p className="staff-email">
+                      <FaEnvelope /> {member.Email}
+                    </p>
+                  )}
                 </div>
               );
             })}
           </div>
         </div>
-        <button className="arrow right" onClick={() => scrollManual("right")}>
+        <button
+          className="arrow right"
+          onClick={() => scrollManual("right")}
+          aria-label="Scroll right"
+        >
           &#8594;
         </button>
       </div>
