@@ -10,8 +10,9 @@ import PublicationsAdmin from "./PublicationsAdmin";
 import ContactAdmin from "./ContactAdmin";
 import PartnersAdmin from "./PartnersAdmin";
 import ApplicationsAdmin from "./ApplicationsAdmin";
+import ImpactsAdmin from "./ImpactsAdmin"; // ✅ new import
 import { motion, AnimatePresence } from "framer-motion";
-import ChangeAccountModal from "./ChangeAccountModal"; // <-- Import modal
+import ChangeAccountModal from "./ChangeAccountModal";
 import "./admin.css";
 
 const Admin: React.FC = () => {
@@ -25,6 +26,7 @@ const Admin: React.FC = () => {
     | "contact"
     | "partner"
     | "application"
+    | "impacts" // ✅ new tab type
   >("team");
 
   const { user, logout, isAuthenticated, refreshUser } = useAuth();
@@ -54,6 +56,7 @@ const Admin: React.FC = () => {
     { label: "Publications", key: "publications" },
     { label: "Partners", key: "partner" },
     { label: "Contacts", key: "contact" },
+    { label: "Impacts", key: "impacts" }, // ✅ new nav item
   ];
 
   return (
@@ -113,6 +116,7 @@ const Admin: React.FC = () => {
             {activeTab === "publications" && <PublicationsAdmin />}
             {activeTab === "partner" && <PartnersAdmin />}
             {activeTab === "contact" && <ContactAdmin />}
+            {activeTab === "impacts" && <ImpactsAdmin />}{/* ✅ render new tab */}
           </motion.div>
         </AnimatePresence>
       </main>
@@ -121,7 +125,7 @@ const Admin: React.FC = () => {
       {showChangeAccountModal && (
         <ChangeAccountModal
           onClose={() => setShowChangeAccountModal(false)}
-          refreshUser={refreshUser} // Pass refreshUser to modal
+          refreshUser={refreshUser}
         />
       )}
     </div>

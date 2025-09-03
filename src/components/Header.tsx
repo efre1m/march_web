@@ -34,7 +34,7 @@ const Header: React.FC = () => {
       <div className="container">
         <div className="header-content">
           <NavLink to="/" className="logo" onClick={handleNavClick}>
-            <img src="/images/logo.png" alt="DHRDC Logo" />
+            <img src="/images/logo.jpeg" alt="DHRDC Logo" />
             <span>DHRDC</span>
           </NavLink>
 

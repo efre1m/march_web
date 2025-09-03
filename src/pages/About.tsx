@@ -40,30 +40,6 @@ const milestones = [
     details:
       "On December 16, 2019, the College Council of the College of Health Sciences approved the establishment of the Research and Development Center.",
   },
-  {
-    year: "2020",
-    event: "Telemedicine Platform",
-    details:
-      "Rolled out a digital telemedicine solution to connect rural clinics with specialists.",
-  },
-  {
-    year: "2021",
-    event: "Research Partnership",
-    details:
-      "Formed key partnerships with international universities and health bodies.",
-  },
-  {
-    year: "2022",
-    event: "Mobile Health App",
-    details:
-      "Launched a user-friendly mobile app providing real-time maternal care tips and tracking.",
-  },
-  {
-    year: "2023",
-    event: "Global Expansion",
-    details:
-      "Expanded operations into over 50 countries, supporting millions globally.",
-  },
 ];
 
 const containerVariants = {
