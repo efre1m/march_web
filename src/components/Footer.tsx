@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
           </p>
           <a href="#top">
             <img
-              src="/images/logo.png"
+              src="/images/logo.jpeg"
               alt="DHRDC Logo"
               className="footer-logo"
             />

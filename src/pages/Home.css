@@ -391,29 +391,24 @@ body {
 }
 
 .about-content-box {
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
+  position: relative; /* instead of absolute */
+  bottom: auto;
+  left: auto;
+  right: auto;
   background: rgba(0, 0, 0, 0.6);
   border-radius: var(--border-radius);
-  padding: 1rem 1.5rem;
+  padding: 1.5rem 2rem;
   color: #ffffff;
   font-weight: 600;
   font-size: 1rem;
-  line-height: 1.4;
+  line-height: 1.6;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  max-width: calc(100% - 2rem);
-  max-height: 140px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  opacity: 1;
-  transform: translateY(0);
-  will-change: transform, opacity;
-  text-align: justify;
   width: 100%;
+  max-width: 100%;
+  max-height: none; /* 🚨 remove the 140px limit */
+  overflow-y: visible; /* 🚨 allow content expansion */
+  text-align: justify;
+  margin-top: auto; /* pushes it down but keeps it visible */
 }
 
 .about-content-box:hover {
